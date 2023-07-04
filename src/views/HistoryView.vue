@@ -10,7 +10,7 @@ const history = JSON.parse(localStorage.getItem('history') || '')
       <div
         v-for="(item, index) in history"
         :key="item.id"
-        class="px-4 h-[535px]"
+        class="h-[580px] px-2 cursor-pointer hover:shadow"
         :class="{
           'basis-1/2': index % 10 === 0 || index % 10 === 9,
           'basis-1/4': index % 10 !== 0 && index % 10 !== 9
