@@ -40,7 +40,6 @@ fetchData()
 <template>
   <main class="container mx-auto my-4 space-y-4">
     <h2 class="text-4xl font-bold px-4">List Article</h2>
-    <Skeleton active />
     <input
       class="w-full h-11 border border-[#c4c4c480] rounded-md py-2 px-3 mx-4"
       v-model="search"
@@ -48,11 +47,11 @@ fetchData()
       @keyup.enter="fetchData"
     />
 
-    <article v-if="articles" class="flex flex-wrap gap-y-6">
+    <article v-if="!loading" class="flex flex-wrap gap-y-6">
       <div
         v-for="(article, index) of articles"
         :key="article.id"
-        class="px-4 h-[535px]"
+        class="h-[580px] px-2 cursor-pointer hover:shadow"
         :class="{
           'basis-1/2': index % 10 === 0 || index % 10 === 9,
           'basis-1/4': index % 10 !== 0 && index % 10 !== 9
@@ -62,5 +61,23 @@ fetchData()
         <CardArticle :article="article" />
       </div>
     </article>
+    <div v-else>
+      <div class="flex flex-wrap gap-y-6">
+        <div class="basis-1/2 px-4">
+          <a-skeleton-image />
+          <a-skeleton active />
+        </div>
+        <div class="basis-1/2 flex">
+          <div class="basis-1/2 px-4">
+            <a-skeleton-image />
+            <a-skeleton active />
+          </div>
+          <div class="basis-1/2 px-4">
+            <a-skeleton-image />
+            <a-skeleton active />
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
 </template>

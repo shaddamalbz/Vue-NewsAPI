@@ -11,7 +11,7 @@ defineProps<{
     :src="article.urlToImage"
     alt="article thumbnail"
   />
-  <div class="h-[215px] flex flex-col justify-between">
+  <div class="h-[250px] p-4 flex flex-col justify-between">
     <div>
       <h3 class="text-2xl font-bold line-clamp-2">{{ article.title }}</h3>
       <p class="line-clamp-5 mb-4">
